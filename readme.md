@@ -6,4 +6,6 @@ Bonus functions to the basic CLI IfcTester:
 - GUI for users without programming skills 
 - Possibility to choose a report template
 - HTML report template folder with multiple language templates
+- Added "Skipped" container for not used specifications
+- Added sorting to the .html feeding that Passed specifications goes first, Failed second and Skipped are last 
 - IDS template folder with Czech IDS samples
