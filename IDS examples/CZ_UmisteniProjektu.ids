@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ids:ids xmlns:ids="http://standards.buildingsmart.org/IDS" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://standards.buildingsmart.org/IDS http://standards.buildingsmart.org/IDS/1.0/ids.xsd">
+	<ids:info>
+		<ids:title>AversioSamples - Kontrola umístění projektu</ids:title>
+		<ids:copyright>Aversio</ids:copyright>
+		<ids:version>1.0</ids:version>
+		<ids:description>Kontrola vybraného souřadného systému a souřadnic lokálního počátku</ids:description>
+		<ids:author>hlavacek@aversio.cz</ids:author>
+		<ids:date>2023-10-01</ids:date>
+		<ids:purpose>Koordinace</ids:purpose>
+		<ids:milestone>STS,DUR,DSP,DPS</ids:milestone>
+	</ids:info>
+	<ids:specifications>
+    		<ids:specification ifcVersion="IFC2X3 IFC4" name="Souřadný systém" description="Kontrola použití souřadného systému S-JTSK Krovák East/North s EPSG: 5514">
+			<ids:applicability maxOccurs="unbounded">
+				<ids:entity>
+					<ids:name>
+						<ids:simpleValue>IFCPROJECTEDCRS</ids:simpleValue>
+					</ids:name>
+				</ids:entity>
+			</ids:applicability>
+			<ids:requirements>
+				<ids:attribute>
+					<ids:name>
+						<ids:simpleValue>Name</ids:simpleValue>
+					</ids:name>
+                    <ids:value>
+                        <ids:simpleValue>EPSG:5514</ids:simpleValue>
+                    </ids:value>
+				</ids:attribute>
+				<ids:attribute>
+					<ids:name>
+						<ids:simpleValue>Description</ids:simpleValue>
+					</ids:name>
+                    <ids:value>
+                        <ids:simpleValue>S-JTSK / Krovak East North</ids:simpleValue>
+                    </ids:value>
+				</ids:attribute>
+				<ids:attribute>
+					<ids:name>
+						<ids:simpleValue>GeodeticDatum</ids:simpleValue>
+					</ids:name>
+                    <ids:value>
+                        <ids:simpleValue>System of the Unified Trigonometrical Cadastral Network</ids:simpleValue>
+                    </ids:value>
+				</ids:attribute>                                              
+			</ids:requirements>
+		</ids:specification>
+		<ids:specification ifcVersion="IFC2X3 IFC4" name="Lokální počátek" description="Kontrola lokálního počátku dle dohody / BEP">
+			<ids:applicability maxOccurs="unbounded">
+				<ids:entity>
+					<ids:name>
+						<ids:simpleValue>IFCMAPCONVERSION</ids:simpleValue>
+					</ids:name>
+				</ids:entity>
+			</ids:applicability>
+            <ids:requirements>
+                <ids:attribute>
+                    <ids:name>
+                        <ids:simpleValue>Eastings</ids:simpleValue>
+                    </ids:name>
+                    <ids:value>
+                        <xs:restriction base="xs:decimal">
+                            <xs:minExclusive value="-700000.00"/>
+                            <xs:maxExclusive value="-700000.00"/>                            
+                        </xs:restriction>
+                    </ids:value>
+                </ids:attribute>
+                <ids:attribute>
+                    <ids:name>
+                        <ids:simpleValue>Northings</ids:simpleValue>
+                    </ids:name>
+                    <ids:value>
+                        <xs:restriction base="xs:decimal">
+                            <xs:minExclusive value="-1000000.46"/>
+                            <xs:maxExclusive value="-1000000.45"/>
+                        </xs:restriction>
+                    </ids:value>
+                </ids:attribute>
+                <ids:attribute>
+                    <ids:name>
+                        <ids:simpleValue>OrthogonalHeight</ids:simpleValue>
+                    </ids:name>
+                    <ids:value>
+                        <xs:restriction base="xs:decimal">
+                            <xs:minExclusive value="300.26"/>
+                            <xs:maxExclusive value="300.27"/>
+                        </xs:restriction>
+                    </ids:value>
+                </ids:attribute>
+            </ids:requirements>
+		</ids:specification>
+	</ids:specifications>
+</ids:ids>

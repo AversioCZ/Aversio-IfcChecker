@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ids:ids xmlns:ids="http://standards.buildingsmart.org/IDS" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://standards.buildingsmart.org/IDS http://standards.buildingsmart.org/IDS/1.0/ids.xsd">
+	<ids:info>
+		<ids:title>AversioSamples - Kontrola parametrů požárních úseků</ids:title>
+		<ids:copyright>Aversio</ids:copyright>
+		<ids:version>1.0</ids:version>
+		<ids:description>Kontrola naplnění parametrů pro požární úseky</ids:description>
+		<ids:author>hlavacek@aversio.cz</ids:author>
+		<ids:date>2023-10-01</ids:date>
+		<ids:purpose>Odevzdání modelu PBŘ</ids:purpose>
+		<ids:milestone>DSP,DPS</ids:milestone>
+	</ids:info>
+	<ids:specifications>
+    	<ids:specification ifcVersion="IFC2X3 IFC4" name="Požární úseky - info" description="Kontrola, že požární úseky obsahují potřebné základní informace">
+			<ids:applicability maxOccurs="unbounded">
+				<ids:entity>
+					<ids:name>
+						<ids:simpleValue>IFCSPATIALZONE.FIRESAFETY</ids:simpleValue>
+					</ids:name>
+				</ids:entity>
+			</ids:applicability>
+			<ids:requirements>
+				<ids:attribute>
+					<ids:name>
+						<ids:simpleValue>Name</ids:simpleValue>
+					</ids:name>
+				</ids:attribute>
+				<ids:property dataType="IFCBOOLEAN" instructions="Popisuje zda je zóna únikovou cestou">
+					<ids:propertySet>
+						<ids:simpleValue>PBR_Info</ids:simpleValue>
+					</ids:propertySet>
+					<ids:baseName>
+						<ids:simpleValue>ÚnikováCesta</ids:simpleValue>
+					</ids:baseName>
+				</ids:property>
+				<ids:property dataType="IFCLABEL" instructions="Stupeň požární bezpečnosti">
+					<ids:propertySet>
+						<ids:simpleValue>PBR_Info</ids:simpleValue>
+					</ids:propertySet>
+					<ids:baseName>
+						<ids:simpleValue>SPB</ids:simpleValue>
+					</ids:baseName>
+				</ids:property>                                              
+			</ids:requirements>
+		</ids:specification>
+    	<ids:specification ifcVersion="IFC2X3 IFC4" name="Požární úseky - požadavky na konstrukce" description="Kontrola, že požární úsek má potřebné stanovené požadavky na konstrukce">
+			<ids:applicability maxOccurs="unbounded">
+				<ids:entity>
+					<ids:name>
+						<ids:simpleValue>IFCSPATIALZONE.FIRESAFETY</ids:simpleValue>
+					</ids:name>
+				</ids:entity>
+			</ids:applicability>
+			<ids:requirements>
+				<ids:property dataType="IFCLABEL" instructions="Požadavky na stěny a stropy">
+					<ids:propertySet>
+						<ids:simpleValue>PBR_Pozadavky</ids:simpleValue>
+					</ids:propertySet>
+					<ids:baseName>
+						<ids:simpleValue>StenyStropy</ids:simpleValue>
+					</ids:baseName>
+				</ids:property>
+				<ids:property dataType="IFCLABEL" instructions="Požadavek na otvory">
+					<ids:propertySet>
+						<ids:simpleValue>PBR_Pozadavky</ids:simpleValue>
+					</ids:propertySet>
+					<ids:baseName>
+						<ids:simpleValue>Otvory</ids:simpleValue>
+					</ids:baseName>
+				</ids:property>
+				<ids:property dataType="IFCLABEL" instructions="Požadavek na obvodové stěny">
+					<ids:propertySet>
+						<ids:simpleValue>PBR_Pozadavky</ids:simpleValue>
+					</ids:propertySet>
+					<ids:baseName>
+						<ids:simpleValue>StenyObvodove</ids:simpleValue>
+					</ids:baseName>
+				</ids:property>                                                
+			</ids:requirements>
+		</ids:specification>
+    	<ids:specification ifcVersion="IFC2X3 IFC4" name="Požární úseky - požadavky na konstrukce" description="Kontrola, parametrů požární odolnosti konstrukce">
+			<ids:applicability maxOccurs="unbounded">
+				<ids:entity>
+					<ids:name>
+						<ids:simpleValue>IFCSTAIR</ids:simpleValue>
+					</ids:name>
+				</ids:entity>
+			</ids:applicability>
+			<ids:requirements>
+				<ids:property dataType="IFCLABEL" instructions="Kontrola navržené požární odolnosti">
+					<ids:propertySet>
+						<ids:simpleValue>PBR</ids:simpleValue>
+					</ids:propertySet>
+					<ids:baseName>
+						<ids:simpleValue>PozarniOdolnost</ids:simpleValue>
+					</ids:baseName>
+				</ids:property>
+			</ids:requirements>  
+		</ids:specification>
+	</ids:specifications>
+</ids:ids>
